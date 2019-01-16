@@ -75,8 +75,14 @@ static void name_acquired_cb(GDBusConnection *connection,
 	g_signal_connect(network_manager, "handle-status", G_CALLBACK(get_status_callback), NULL);
 
 	g_print("export interfaces\n");
-	g_dbus_interface_skeleton_export(G_DBUS_INTERFACE_SKELETON(user_manager), connection, "/org/freedesktop/SystemManager/User", NULL);
-	g_dbus_interface_skeleton_export(G_DBUS_INTERFACE_SKELETON(network_manager), connection, "/org/freedesktop/SystemManager/Network", NULL);
+	g_dbus_interface_skeleton_export(G_DBUS_INTERFACE_SKELETON(user_manager),
+			connection,
+			"/org/freedesktop/SystemManager/User",
+			NULL);
+	g_dbus_interface_skeleton_export(G_DBUS_INTERFACE_SKELETON(network_manager),
+			connection,
+			"/org/freedesktop/SystemManager/Network",
+			NULL);
 
 }
 
